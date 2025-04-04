@@ -1,26 +1,36 @@
 package org.example;
 
+
+// primer metodo del programa
 public class Carta {
      // creada la clase Carta, en este caso defini sus valores principales que tendra, el valor en si de la carta y su String.
 
     private int valor;
     private String pinta;
 
+    // devuelve el valor de la carta
 
-    private static int getValor(){
-        return 0;
+    public String toString() {
+        return valor + " de " + pinta;
     }
 
-    private static String getPinta(){
-        return "x";
+    // constructor de una carta
+    public Carta(int valor, String pinta){
+        this.valor = valor;
+        this.pinta = pinta;
     }
 
-    private static String toString1(){
-        return null;
+
+    public int getValor(){
+        return this.valor;
     }
 
-    private static boolean esIgual(){
-        return true;
+    public String getPinta(){
+        return this.pinta;
+    }
+
+    public boolean esIgual(Carta otra){
+        return this.valor == otra.valor && this.pinta.equals(otra.pinta);
     }
 
 
