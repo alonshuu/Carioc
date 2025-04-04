@@ -85,6 +85,10 @@ public class Jugador {
         return triosEncontrados;
     }
 
+    private void recibirCarta(Carta carta){
+        mano.add(carta);
+    }
+
 
 
 
