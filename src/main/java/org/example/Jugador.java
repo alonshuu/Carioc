@@ -63,6 +63,28 @@ public class Jugador {
         return cantidadTrios >= 2;
     }
 
+    public List<List<Carta>> buscarTrios() {
+        Map<Integer, List<Carta>> grupos = new HashMap<>();
+
+        for (Carta carta : mano) {
+            int valor = carta.getValor();
+            if (!grupos.containsKey(valor)) {
+                grupos.put(valor, new ArrayList<>());
+            }
+            grupos.get(valor).add(carta);
+        }
+
+        List<List<Carta>> triosEncontrados = new ArrayList<>();
+
+        for (List<Carta> grupo : grupos.values()) {
+            if (grupo.size() >= 3){
+                triosEncontrados.add(grupo.subList(0,3));
+                if (triosEncontrados.size() == 2) break;
+            }
+        }
+        return triosEncontrados;
+    }
+
 
 
 
