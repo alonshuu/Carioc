@@ -1,7 +1,9 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Jugador {
     private List<Carta> mano;
@@ -14,6 +16,10 @@ public class Jugador {
     public Jugador(String nombre){
         this.nombre = nombre;
         this.mano = new ArrayList<>();
+    }
+
+    public String getNombre(){
+        return this.nombre;
     }
 
 
@@ -37,6 +43,27 @@ public class Jugador {
             System.out.println(" - " + carta);
         }
     }
+
+    public boolean tieneTrios(){
+        Map<Integer, Integer> contador = new HashMap<>();
+
+        for (Carta carta : mano) {
+            int valor = carta.getValor();
+            contador.put(valor, contador.getOrDefault(valor, 0) + 1);
+        }
+
+        int cantidadTrios = 0;
+
+        for (int repeticiones : contador.values()) {
+            if (repeticiones == 3) {
+                cantidadTrios++;
+            }
+        }
+
+        return cantidadTrios >= 2;
+    }
+
+
 
 
 
