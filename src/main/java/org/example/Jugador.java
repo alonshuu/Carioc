@@ -39,9 +39,11 @@ public class Jugador {
 
     public void mostrarMano() {
         System.out.println("Mano de " + nombre + ":");
-        for (Carta carta : mano){
-            System.out.println(" - " + carta);
+        for (int i = 0; i < mano.size() ; i++){
+            System.out.println(i + ": " + mano.get(i));
         }
+
+
     }
 
     public boolean tieneTrios(){
@@ -85,8 +87,12 @@ public class Jugador {
         return triosEncontrados;
     }
 
-    private void recibirCarta(Carta carta){
+    public void recibirCarta(Carta carta){
         mano.add(carta);
+    }
+
+    public List<Carta> getMano() {
+        return this.mano;
     }
 
 
